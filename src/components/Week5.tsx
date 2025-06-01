@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
 interface Week5Props {
-  onComplete?: () => void;
 }
 
 interface StoryBlock {
@@ -13,9 +12,8 @@ interface StoryBlock {
 
 type OrderArray = Array<'A' | 'B' | 'C'>;
 
-export default function Week5({ onComplete }: Week5Props) {
+export default function Week5() {
   const [started, setStarted] = useState(false);
-  const [sentences, setSentences] = useState<string[]>([]);
   const [currentBlock, setCurrentBlock] = useState<StoryBlock | null>(null);
   const [currentBlockIndex, setCurrentBlockIndex] = useState(0);
   const [blocks, setBlocks] = useState<StoryBlock[]>([]);
@@ -34,7 +32,6 @@ export default function Week5({ onComplete }: Week5Props) {
       }
     }
     if (newSentences.length === 10) {
-      setSentences(newSentences);
       generateBlocks(newSentences);
       setStarted(true);
     }
@@ -142,7 +139,7 @@ export default function Week5({ onComplete }: Week5Props) {
             </h3>
             <ul className="text-lg text-center mb-4" style={{ color: '#2E2D29' }}>
               <li className="mb-2">• Provide 10 <em>unrelated</em> sentences (of the same tense) which could be lines in a story</li>
-              <li className="mb-2">• For example: "The alligator looked at its son longingly."</li>
+              <li className="mb-2">• For example: &quot;The alligator looked at its son longingly.&quot;</li>
             </ul>
             <form onSubmit={handleSentencesSubmit} className="w-full space-y-4">
               {Array.from({ length: 10 }, (_, i) => (
@@ -193,7 +190,6 @@ export default function Week5({ onComplete }: Week5Props) {
             <button
               onClick={() => {
                 setStarted(false);
-                setSentences([]);
                 setCurrentBlock(null);
                 setCurrentBlockIndex(0);
                 setBlocks([]);

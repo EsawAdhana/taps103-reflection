@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 
 interface Week7Props {
-  onComplete?: () => void;
 }
 
 interface Story {
@@ -18,7 +17,7 @@ const PROMPT_POOL = [
   '(Character) Upset magician',
   '(Character) Sleepy astronaut',
   '(Character) Nervous chef',
-  '(Character) Retired detective',
+  '(Character) Overworked detective',
   '(Object) Lost umbrella',
   '(Object) Mysterious letter',
   '(Object) Ancient coin',
@@ -33,7 +32,7 @@ const TRANSITION_POOL = [
   'That next evening...'
 ];
 
-export default function Week7({ onComplete }: Week7Props) {
+export default function Week7() {
   const [started, setStarted] = useState(false);
   const [currentRound, setCurrentRound] = useState(0);
   const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
@@ -82,7 +81,7 @@ export default function Week7({ onComplete }: Week7Props) {
       });
       // Automatically switch to next story or round
       setTimeout(() => {
-        setTimeLeft(2); // Reset timer for next story
+        setTimeLeft(2); // Reset timer for next story to 10 seconds
         setUserInput('');
         if (currentStoryIndex < 3) {
           setCurrentStoryIndex(prev => prev + 1);
@@ -113,6 +112,7 @@ export default function Week7({ onComplete }: Week7Props) {
     // eslint-disable-next-line
   }, [currentStoryIndex, currentRound]);
 
+  // Handle user input separately
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setUserInput(e.target.value);
     setStories(prevStories => {
@@ -138,9 +138,9 @@ export default function Week7({ onComplete }: Week7Props) {
               Welcome to the Switch Left Game!
             </h3>
             <ul className="text-lg text-center mb-4" style={{ color: '#2E2D29' }}>
-              <li className="mb-2">• You'll be writing 4 different stories simultaneously</li>
+              <li className="mb-2">• You&apos;ll be writing 4 different stories simultaneously</li>
               <li className="mb-2">• Each story gets 10 seconds of writing time before switching</li>
-              <li className="mb-2">• After completing the 4 stories, a transition will be presented and you'll continue</li>
+              <li className="mb-2">• After completing the 4 stories, a transition will be presented and you&apos;ll continue</li>
               <li className="mb-2">• This will happen 3 times total</li>
             </ul>
             <button

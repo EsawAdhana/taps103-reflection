@@ -31,29 +31,24 @@ function playMetronomeTick() {
   oscillator.stop(audioContext.currentTime + 0.1);
 }
 
-interface Week9Props {
-  onComplete?: () => void;
-}
-
-export default function Week9({ onComplete }: Week9Props) {
+export default function Week9() {
   const [phase, setPhase] = useState<'practice'|'countdown'|'recital'|'playback'>('practice');
   const [timeLeft, setTimeLeft] = useState(15);
   const [countdown, setCountdown] = useState(3);
   const [recitalTime, setRecitalTime] = useState(20);
   const [activeKeys, setActiveKeys] = useState<Set<string>>(new Set());
   const [recordedNotes, setRecordedNotes] = useState<{note: string, time: number}[]>([]);
-  const [playbackIndex, setPlaybackIndex] = useState(0);
   const [playbackStart, setPlaybackStart] = useState<number|null>(null);
   const [story, setStory] = useState('');
   const recitalStartRef = useRef<number|null>(null);
-  const playbackTimeoutRef = useRef<any>(null);
+  const playbackTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const [audioContext, setAudioContext] = useState<AudioContext | null>(null);
 
   // Initialize audio context
   useEffect(() => {
     const initAudio = async () => {
       try {
-        const context = new (window.AudioContext || (window as any).webkitAudioContext)();
+        const context = new (window.AudioContext || (window as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext)();
         // Resume the context to handle autoplay restrictions
         await context.resume();
         setAudioContext(context);
@@ -95,7 +90,6 @@ export default function Week9({ onComplete }: Week9Props) {
     if (phase !== 'recital') return;
     if (recitalTime <= 0) {
       setPhase('playback');
-      setPlaybackIndex(0);
       setPlaybackStart(performance.now());
       return;
     }
@@ -245,7 +239,6 @@ export default function Week9({ onComplete }: Week9Props) {
               setRecitalTime(20);
               setActiveKeys(new Set());
               setRecordedNotes([]);
-              setPlaybackIndex(0);
               setPlaybackStart(null);
               setStory('');
             }}

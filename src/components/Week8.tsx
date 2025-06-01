@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 
 interface Week8Props {
-  onComplete?: () => void;
 }
 
 interface Story {
@@ -10,21 +9,18 @@ interface Story {
 }
 
 const PROMPT_POOL = [
-  'In the depths of an ancient library, where dust dances in sunbeams...',
+  'In the depths of an ancient library...',
   'On a space station orbiting a distant planet...',
-  'As waves gently lap against the shore of a tropical beach...',
+  'As waves hit the shore..',
   'Deep within an underground bunker, surrounded by concrete walls...',
-  'A time traveler from the future materializes in the present...',
-  'In a high-tech kitchen, a robot chef prepares an unusual meal...',
-  'A ghost detective floats through the walls of an old mansion...',
-  'An alien tourist takes their first steps on Earth...',
-  'A magic mirror reflects more than just appearances...',
-  'A crystal key glows with mysterious energy...',
-  'A golden compass points to something unexpected...',
-  'A mysterious book opens to reveal its secrets...',
+  'A time traveler from the future arrives in the present...',
+  'In a high-tech kitchen, a chef prepares an unusual meal...',
+  'A crystal key glows...',
+  'A golden compass points to......',
+  'A mysterious book opens...',
 ];
 
-export default function Week8({ onComplete }: Week8Props) {
+export default function Week8() {
   const [started, setStarted] = useState(false);
   const [story, setStory] = useState<Story | null>(null);
   const [userInput, setUserInput] = useState('');
@@ -100,11 +96,11 @@ export default function Week8({ onComplete }: Week8Props) {
               Welcome to the New Choice Game!
             </h3>
             <ul className="text-lg text-center mb-4" style={{ color: '#2E2D29' }}>
-              <li className="mb-2">• You'll be given a prompt to start a story</li>
+              <li className="mb-2">• You&apos;ll be given a prompt to start a story</li>
               <li className="mb-2">• Add one sentence at a time to build your story</li>
               <li className="mb-2">• Each sentence has a chance of being accepted or rejected</li>
-              <li className="mb-2">• If rejected, you'll need to try a different sentence</li>
-              <li className="mb-2">• End the story whenever you feel it's complete!</li>
+              <li className="mb-2">• If rejected, you&apos;ll need to try a different sentence</li>
+              <li className="mb-2">• End the story whenever you feel it&apos;s complete!</li>
             </ul>
             <button
               onClick={() => setStarted(true)}

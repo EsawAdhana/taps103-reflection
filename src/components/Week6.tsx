@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
 interface Week6Props {
-  onComplete?: () => void;
 }
 
 interface ResponseOption {
@@ -68,7 +67,7 @@ const dialogueBlocks: DialogueBlock[] = [
   }
 ];
 
-export default function Week6({ onComplete }: Week6Props) {
+export default function Week6() {
   const [started, setStarted] = useState(false);
   const [currentBlock, setCurrentBlock] = useState(0);
   // Start at neutral (0, 0)
@@ -130,7 +129,7 @@ export default function Week6({ onComplete }: Week6Props) {
               Welcome to Status Dynamics!
             </h3>
             <ul className="text-lg text-center mb-4" style={{ color: '#2E2D29' }}>
-              <li className="mb-2">• In this exercise, you'll engage in a conversation between a boss and an employee</li>
+              <li className="mb-2">• In this exercise, you&apos;ll engage in a conversation between a boss and an employee</li>
               <li className="mb-2">• Observe how different responses affect the status dynamics between them</li>
             </ul>
             <button

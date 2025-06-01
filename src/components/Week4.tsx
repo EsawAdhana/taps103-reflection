@@ -9,7 +9,7 @@ interface Week4Props {
 export default function Week4({ onComplete }: Week4Props) {
   const [started, setStarted] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [timeLeft, setTimeLeft] = useState(5); // 3 minutes
+  const [timeLeft, setTimeLeft] = useState(5);
   const [text, setText] = useState('');
   const [showCursor, setShowCursor] = useState(true);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -71,7 +71,7 @@ export default function Week4({ onComplete }: Week4Props) {
         <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full" style={{ borderLeft: '8px solid #8C1515' }}>
           <ul className="text-lg text-center mb-8" style={{ color: '#222' }}>
             <li className="mb-2">• The vigil will last 3 minutes.</li>
-            <li className="mb-2">• There's just one rule:</li>
+            <li className="mb-2">• There&apos;s just one rule:</li>
             <li className="mb-2">&nbsp;&nbsp;&nbsp;&nbsp;• <span className='font-bold'>Be nice</span></li>
           </ul>
           <div className="flex justify-center">

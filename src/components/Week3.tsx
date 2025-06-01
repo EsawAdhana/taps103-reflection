@@ -72,16 +72,13 @@ export default function Week3() {
       const timeTaken = endTime - dragStartTime.current;
       const currentLevelData = levels[currentLevel];
       let snapped = false;
-      let newY = ball.y;
-      let newX = ball.x;
       // Snap to platform if above the bar
       if (ball.y <= PLATFORM_HEIGHT - BALL_RADIUS + 20) {
-        newY = PLATFORM_HEIGHT - BALL_RADIUS;
         setBall(b => ({ ...b, y: PLATFORM_HEIGHT - BALL_RADIUS }));
         snapped = true;
       }
       // Check if ball reached (or snapped to) the platform
-      if (snapped || newY <= PLATFORM_HEIGHT - BALL_RADIUS) {
+      if (snapped || ball.y <= PLATFORM_HEIGHT - BALL_RADIUS) {
         setBall(b => ({ ...b, x: ball.x, y: PLATFORM_HEIGHT - BALL_RADIUS }));
         if (currentLevel === 0) {
           // Light as a Feather: must be under 1s

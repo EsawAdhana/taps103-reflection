@@ -29,7 +29,6 @@ export default function Week1() {
   const [timeLeft, setTimeLeft] = useState(5);
   const [gameOver, setGameOver] = useState(false);
   const [things, setThings] = useState(['', '', '']);
-  const [showConfetti, setShowConfetti] = useState(false);
 
   useEffect(() => {
     if (started && timeLeft > 0) {
@@ -39,7 +38,6 @@ export default function Week1() {
       return () => clearInterval(timer);
     } else if (timeLeft === 0 && !gameOver) {
       setGameOver(true);
-      setShowConfetti(true);
       // Trigger confetti
       confetti({
         particleCount: 100,
@@ -56,7 +54,6 @@ export default function Week1() {
     setTimeLeft(5);
     setGameOver(false);
     setThings(['', '', '']);
-    setShowConfetti(false);
   };
 
   const handleInputChange = (index: number, value: string) => {
@@ -77,10 +74,10 @@ export default function Week1() {
               Welcome to the Three Things Game!
             </h3>
             <ul className="text-lg text-center mb-4" style={{ color: '#2E2D29' }}>
-              <li className="mb-2">• You'll be given a category</li>
+              <li className="mb-2">• You&apos;ll be given a category</li>
               <li className="mb-2">• You have 5 seconds to name three things in that category</li>
-              <li className="mb-2">• Don't worry about being perfect - just have fun!</li>
-              <li className="mb-2">• When time's up, we'll celebrate with confetti!</li>
+              <li className="mb-2">• Don&apos;t worry about being perfect - just have fun!</li>
+              <li className="mb-2">• When time&apos;s up, we&apos;ll celebrate with confetti!</li>
             </ul>
             <button
               onClick={startGame}
