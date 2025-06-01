@@ -107,16 +107,6 @@ export default function Week3() {
     }
   };
 
-  const handleNextLevel = () => {
-    if (currentLevel < levels.length - 1) {
-      setCurrentLevel(prev => prev + 1);
-      setBall({ x: 200, y: 350 });
-      setGameOver(false);
-      setSuccess(false);
-      setMessage('');
-    }
-  };
-
   const handleRestart = () => {
     setStarted(false);
     setCurrentLevel(0);
@@ -167,7 +157,7 @@ export default function Week3() {
             </h3>
             <ul className="text-lg text-center mb-4" style={{ color: '#2E2D29' }}>
               <li className="mb-2">• Click and drag the ball to move it</li>
-              <li className="mb-2">• Match the speed of your movement to the ball's weight</li>
+              <li className="mb-2">• Match the speed of your movement to the ball&apos;s weight</li>
               <li className="mb-2">• Get the ball to the platform in the right amount of time</li>
             </ul>
             <button

@@ -97,7 +97,7 @@ export default function Week7() {
         }
       }, 400); // Small delay for UX
     }
-  }, [started, timeLeft, currentStoryIndex, currentRound]);
+  }, [started, timeLeft, currentStoryIndex, currentRound, userInput]);
 
   // Auto-focus input when switching stories
   useEffect(() => {
