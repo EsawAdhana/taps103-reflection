@@ -25,17 +25,17 @@ export default function Home() {
       case 3:
         return <Week3 />;
       case 4:
-        return <Week4 onComplete={() => setCurrentWeek(5)} />;
+        return <Week4 />;
       case 5:
-        return <Week5 onComplete={() => setCurrentWeek(6)} />;
+        return <Week5 />;
       case 6:
-        return <Week6 onComplete={() => setCurrentWeek(7)} />;
+        return <Week6 />;
       case 7:
-        return <Week7 onComplete={() => setCurrentWeek(8)} />;
+        return <Week7 />;
       case 8:
-        return <Week8 onComplete={() => setCurrentWeek(9)} />;
+        return <Week8 />;
       case 9:
-        return <Week9 onComplete={() => setCurrentWeek(10)} />;
+        return <Week9 />;
       case 10:
         return <Conclusions />;
       default:
