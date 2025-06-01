@@ -9,7 +9,7 @@ interface Week4Props {
 export default function Week4({ onComplete }: Week4Props) {
   const [started, setStarted] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [timeLeft, setTimeLeft] = useState(5);
+  const [timeLeft, setTimeLeft] = useState(180);
   const [text, setText] = useState('');
   const [showCursor, setShowCursor] = useState(true);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -52,12 +52,12 @@ export default function Week4({ onComplete }: Week4Props) {
     setStarted(true);
     if (containerRef.current && containerRef.current.requestFullscreen) {
       containerRef.current.requestFullscreen();
-    }
-  };
+  }
+};
 
   const handleReplay = () => {
     setStarted(false);
-    setTimeLeft(5); // Reset the timer to 3 minutes
+    setTimeLeft(180); // Reset the timer to 3 minutes
     setText('');
     setShowConclude(false);
   };

@@ -37,7 +37,7 @@ export default function Week7() {
   const [currentRound, setCurrentRound] = useState(0);
   const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
   const [stories, setStories] = useState<Story[]>([]);
-  const [timeLeft, setTimeLeft] = useState(2);
+  const [timeLeft, setTimeLeft] = useState(10);
   const [showTransition, setShowTransition] = useState(false);
   const [userInput, setUserInput] = useState('');
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -81,7 +81,7 @@ export default function Week7() {
       });
       // Automatically switch to next story or round
       setTimeout(() => {
-        setTimeLeft(2); // Reset timer for next story to 10 seconds
+        setTimeLeft(10); // Reset timer for next story to 10 seconds
         setUserInput('');
         if (currentStoryIndex < 3) {
           setCurrentStoryIndex(prev => prev + 1);
@@ -189,7 +189,7 @@ export default function Week7() {
             setCurrentRound(0);
             setCurrentStoryIndex(0);
             setStories([]);
-            setTimeLeft(2);
+            setTimeLeft(10);
             setShowTransition(false);
             setUserInput('');
             setShowSummary(false);
