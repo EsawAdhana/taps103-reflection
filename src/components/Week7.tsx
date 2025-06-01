@@ -1,8 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
 
-interface Week7Props {
-}
-
 interface Story {
   id: number;
   prompt: string;
@@ -109,8 +106,7 @@ export default function Week7() {
     }
     // Set the input to the previous value for this story/round (if any)
     setUserInput(stories[currentStoryIndex]?.content[currentRound] || '');
-    // eslint-disable-next-line
-  }, [currentStoryIndex, currentRound]);
+  }, [currentStoryIndex, currentRound, stories]);
 
   // Handle user input separately
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {

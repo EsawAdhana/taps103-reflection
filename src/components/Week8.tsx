@@ -1,8 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
 
-interface Week8Props {
-}
-
 interface Story {
   prompt: string;
   content: string[];

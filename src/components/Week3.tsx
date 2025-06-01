@@ -70,7 +70,6 @@ export default function Week3() {
     if (isDragging) {
       const endTime = Date.now();
       const timeTaken = endTime - dragStartTime.current;
-      const currentLevelData = levels[currentLevel];
       let snapped = false;
       // Snap to platform if above the bar
       if (ball.y <= PLATFORM_HEIGHT - BALL_RADIUS + 20) {
@@ -164,7 +163,7 @@ export default function Week3() {
         {!started ? (
           <div className="flex flex-col items-center gap-6">
             <h3 className="text-xl font-bold text-center" style={{ color: '#2E2D29' }}>
-              Welcome to the the space-object work playground!
+              Welcome to the space-object work playground!
             </h3>
             <ul className="text-lg text-center mb-4" style={{ color: '#2E2D29' }}>
               <li className="mb-2">• Click and drag the ball to move it</li>

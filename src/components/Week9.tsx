@@ -18,7 +18,7 @@ const NOTE_NAMES: { [note: string]: string } = {
 };
 
 function playMetronomeTick() {
-  const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+  const audioContext = new (window.AudioContext || (window as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext)();
   const oscillator = audioContext.createOscillator();
   const gainNode = audioContext.createGain();
   oscillator.type = 'square';
@@ -196,7 +196,7 @@ export default function Week9() {
       <div className="bg-white rounded-lg shadow-lg p-8 w-full" style={{ borderLeft: '8px solid #8C1515' }}>
         <h2 className="text-2xl font-extrabold mb-4" style={{ color: '#8C1515' }}>Practice Time</h2>
         <p className="text-xl mb-4" style={{ color: '#2E2D29' }}>Time remaining: {timeLeft} seconds</p>
-        <p className="text-gray-700">Use your keyboard to play notes. Press the corresponding key, on the home row, namely 'A through ;, to create music.</p>
+        <p className="text-gray-700">Use your keyboard to play notes. Press the corresponding key, on the home row, namely &apos;A through ;, to create music.</p>
       </div>
     );
   } else if (phase === 'countdown') {

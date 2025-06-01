@@ -1,8 +1,5 @@
 import { useState } from 'react';
 
-interface Week6Props {
-}
-
 interface ResponseOption {
   text: string;
   employeeChange: number; // bossChange will be -employeeChange

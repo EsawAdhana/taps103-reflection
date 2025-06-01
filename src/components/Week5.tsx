@@ -1,8 +1,5 @@
 import { useState } from 'react';
 
-interface Week5Props {
-}
-
 interface StoryBlock {
   sentenceA: string;
   sentenceB: string;
